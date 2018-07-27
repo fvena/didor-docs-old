@@ -1,0 +1,253 @@
+.apiSection {
+  .app-nav {
+    height: double($space);
+    padding-right: double($space);
+  }
+
+  .app-nav > ul > li > p {
+    height: double($space);
+    line-height: double($space);
+  }
+
+  .github-corner svg {
+    width: double($space);
+    height: double($space);
+  }
+
+  .sidebar-toggle {
+    height: double($space);
+    line-height: double($space);
+  }
+
+  .content {
+    padding-top: triple($space);
+  }
+
+  .markdown-section {
+    max-width: inherit !important;
+    padding: 0;
+
+    h2:before { display: none; }
+  }
+
+  .docsify-pagination-container {
+    padding-right: $space;
+    margin-top: 0;
+    border-top: 0;
+  }
+}
+
+.apiBlock {
+  padding: 0;
+  position: relative;
+  display: flex;
+}
+
+.apiDoc,
+.apiCode {
+  width: 50%;
+  padding: double($space) $space;
+}
+
+.apiDoc {
+  border-bottom: 1px solid gray(gray6);
+}
+
+.apiMethod {
+  font-size: .8em;
+  height: 1.6em;
+  line-height: 1.6em;
+  display: inline-block;
+  background-color: gray(gray3);
+  border-radius: 2px;
+  padding: 0 quarter($space);
+  margin-right: quarter($space);
+  color: gray(white);
+  font-weight: font($body-type, bold);
+
+  &.get { background-color: notify(success); }
+  &.post { background-color: notify(warning); }
+  &.put { background-color: notify(warning); }
+  &.delete { background-color: notify(danger); }
+}
+
+
+.apiCode {
+  background-color: #2b303b;
+  border-bottom: 1px solid lighten(#2b303b, 5%);
+
+  pre {
+    margin-top: 0;
+    padding: 0;
+    min-height: $space;
+    max-height: 495px;
+  }
+
+  pre:after { padding: 0;}
+}
+
+.apiCode__title {
+  @include fontsize(eta);
+  color: gray(gray3);
+  border-bottom: 1px solid lighten(#2b303b,5%);
+  margin-bottom: $space;
+  text-transform: uppercase;
+  font-weight: font($body-type, bold);
+}
+
+.apiUrl {
+  margin-bottom: double($space);
+  padding: $space;
+  background-color: gray(gray6);
+
+  a { color: gray(gray1); }
+  a:hover { color: brand(); }
+}
+
+.apiUrl__method {
+  @include fontsize(eta);
+  display: inline-block;
+  background-color: gray(gray3);
+  border-radius: 2px;
+  padding: 0 quarter($space);
+  margin-right: quarter($space);
+  color: gray(white);
+  font-weight: font($body-type, bold);
+
+  &.get { background-color: notify(success); }
+  &.post { background-color: notify(warning); }
+  &.put { background-color: notify(warning); }
+  &.delete { background-color: notify(danger); }
+}
+
+.apiForm {
+  margin-bottom: double($space);
+}
+
+.apiForm__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  margin-bottom: halve($space);
+  border-radius: $border-radius;
+  background-color: rgba(255,255,255,.05);
+}
+
+.apiForm__header__url {
+  @include fontsize(eta);
+  flex: 1 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  a { color: gray(gray3); }
+}
+
+.apiForm__header__method,
+.apiForm__header__submit {
+  @include fontsize(eta);
+  font-weight: font($body-type, bold);
+  height: 100%;
+  padding: 0 halve($space);
+}
+
+.apiForm__header__method {
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: $border-radius 0 0 $border-radius;
+  margin-right: halve($space);
+  color: gray(gray4);
+  line-height: 2rem;
+  text-transform: uppercase;
+}
+
+.apiForm__header__submit {
+  margin-left: $space;
+  background-color: brand();
+  color: gray(white);
+  border: 0;
+  border-radius: 0 $border-radius $border-radius 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.apiForm__row {
+  @include fontsize(theta);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  background-color: rgba(255,255,255,.05);
+  font-family: font($monospace-type, font-family);
+  margin-bottom: 1px;
+
+  &:first-of-type {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+  }
+
+  &:last-of-type {
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+}
+
+.apiForm__name {
+  flex: 1 1 0;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: ellipsis;
+  color: gray(gray3);
+  margin-left: halve($space);
+  position: relative;
+
+  [type="checkbox"]:not(:checked),
+  [type="checkbox"]:checked {
+    width: 2rem;
+    height: 2rem;
+    top: -.2rem;
+    left: -.2rem;
+  }
+
+  [type="checkbox"]:not(:checked) + label:before,
+  [type="checkbox"]:checked + label:before {
+    background-color: rgba(255,255,255,.35);
+  }
+
+  [type="checkbox"]:disabled:not(:checked) + label:before,
+  [type="checkbox"]:disabled:checked + label:before {
+    background-color: rgba(255,255,255,.1);
+  }
+
+  [type="checkbox"]:disabled:checked + label:after {
+    color: gray(gray2);
+  }
+
+  [type="checkbox"]:disabled + label {
+    color: gray(gray2);
+  }
+
+  label:hover:before {
+    background-color: rgba(255,255,255,.5);
+  }
+}
+
+.apiForm__input {
+  flex: 1 1 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: none;
+  border: none !important;
+  color: gray(gray3);
+  outline: none;
+}
+
+
+@include media(portrait) {
+  .apiBlock { flex-direction: column; }
+  .apiDoc,
+  .apiCode { width: 100%; }
+}

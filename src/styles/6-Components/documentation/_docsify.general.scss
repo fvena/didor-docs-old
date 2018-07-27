@@ -1,0 +1,152 @@
+body:not(.ready) {
+  overflow: hidden;
+}
+
+body:not(.ready) .app-nav,
+body:not(.ready)>nav,
+body:not(.ready) [data-cloak] {
+  display: none;
+}
+
+body.close {
+  .sidebar { transform: translateX(-$sidebar-width); }
+
+  .content,
+  .sidebar-toggle {
+    left: 0;
+  }
+
+  .app-nav { width: calc(100% - #{double($space)}); }
+}
+
+// sass-lint:disable no-ids
+div#app:empty:before {
+  content: 'Loading...';
+}
+// sass-lint:enable no-ids
+
+main {
+  display: block;
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  z-index: 0;
+}
+
+main.hidden {
+  display: none;
+}
+
+.emoji {
+  height: 1.2rem;
+  vertical-align: middle;
+}
+
+.task-list-item {
+  list-style-type: none;
+}
+
+.progress {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  transition: width .2s,
+  opacity .4s;
+  background-color: brand();
+  z-index: 5;
+}
+
+@media print {
+  .app-nav,
+  .github-corner,
+  .sidebar,
+  .sidebar-toggle {
+    display: none;
+  }
+
+  .content {
+    left: 0;
+  }
+}
+
+@include media(portrait) {
+  main {
+    height: auto;
+    overflow-x: hidden;
+  }
+
+  body.close {
+    .sidebar { transform: translateX(0); }
+    .sidebar-toggle { left: $sidebar-width-large; }
+    .sidebar-toggle:before {width: 100%; }
+    .app-nav { z-index: 0; }
+  }
+}
+
+@include media(screen) {
+  body.close {
+    .sidebar { transform: translateX(-$sidebar-width-large); }
+  }
+}
+
+.markdown-section {
+  pre:after {
+    right: $space;
+    padding: 0 halve($space);
+    top: quarter($space);
+    line-height: 1.8rem;
+  }
+
+  .docsify-pagination-container {
+    margin: triple($space) 0 $space;
+    border-top: 1px solid $border-color;
+  }
+
+
+  .pagination-item-label {
+    color: gray(gray3);
+    opacity: 1 !important;
+  }
+
+  .pagination-item { margin-top: $space; }
+  .pagination-item-title { color: gray(gray1); }
+  .pagination-item:not(:last-child) a .pagination-item-label { opacity: .3 !important; }
+  .pagination-item:not(:last-child):hover a .pagination-item-label { opacity: 1 !important; }
+
+  .docsify-copy-code-button {
+    opacity: 1;
+    background-color: inherit;
+    // overflow: hidden;
+    text-indent: -9999px;
+    width: $space;
+    height: $space;
+    padding: 0;
+    top: quarter($space);
+    right: quarter($space);
+
+    &:before {
+      content: '#{$icon-clipboard}';
+      @extend %icon;
+      font-size: 17px;
+      color: gray(gray3);
+      text-indent: 0;
+      float: left;
+      padding: 0 quarter($space);
+      line-height: $space;
+    }
+
+    &:after {
+      text-indent: 0;
+      margin: 0;
+      background-color: rgba(65, 72, 86, .8);
+      color: gray(gray5);
+    }
+
+    &:hover:before {
+      color: gray(gray5);
+    }
+  }
+}

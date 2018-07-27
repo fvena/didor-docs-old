@@ -1,0 +1,34 @@
+/**
+ * DEFAULTS SETTINGS
+ */
+
+// Espacio por defecto
+$space: $base-line-height * 1rem;
+
+$caption-colour:          gray(gray4);
+$code-background-colour:  gray(gray6);
+
+// Body
+$base-background-color:   gray(white);
+$base-text-color:         gray(gray2);
+$base-text-family:        font($body-type, font-family);
+$base-text-weight:        font($body-type, regular);
+
+// Heading
+$base-heading-color:      gray(gray1);
+$base-heading-family:     font($heading-type, font-family);
+$base-heading-weight:     font($heading-type, bold);
+
+// Link
+$base-link-color:         brand();
+$base-link-color-dark:    brand();
+
+// General
+$border-radius: 5px !default;
+$border-color: gray(gray5);
+
+$gutter: $space !default;
+$grid-columns: 12 !default;
+
+$base-wrappers-width: 700px;
+$base-wrappers-width-large: 760px;

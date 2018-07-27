@@ -1,0 +1,74 @@
+/**
+ * RESPONSIVE SETTINGS
+ */
+
+/**
+ * Breakpoints
+ *
+ * Existen 5 tamaños de pantalla definidos:
+ *   palm  - Móviles
+ *   lap   - Tablet verticales y Móviles horizontales
+ *   small - Tablet horizontales
+ *   desk  - Portátiles y monitores pequeños
+ *   large - Monitores grandes
+ */
+$palm:  600px;
+$lap:   900px;
+$small: 1200px;
+$desk:  1800px;
+
+
+/**
+ * Mobile First
+ *
+ * Indica si se trata de un diseño siguiendo el enfoque Mobile First
+ */
+$mobile-first: false;
+
+
+/**
+ * Desk First Alias
+ *
+ * Listado de los alias con los puntos de corte para un desarrollo enfocado a
+ * desk first. Puedes cambiarles el nombre, el valor o añadir más puntos.
+ */
+$breakpoints-desk-first: (
+  palm:      'screen and (max-width: #{px2em($palm - 1)})',
+  lap:       'screen and (min-width: #{px2em($palm)}) and (max-width: #{px2em($lap - 1)})',
+  small:     'screen and (min-width: #{px2em($lap)}) and (max-width: #{px2em($small - 1)})',
+  desk:      'screen and (min-width: #{px2em($small)}) and (max-width: #{px2em($desk - 1)})',
+  large:     'screen and (min-width: #{px2em($desk)})',
+  portrait:  'screen and (max-width: #{px2em($lap - 1)})',
+  landscape: 'screen and (min-width: #{px2em($lap)})',
+  touch:     'screen and (max-width: #{px2em($small - 1)})',
+  screen:   'screen and (min-width: #{px2em($small)})',
+  tablet:    'screen and (min-width: #{px2em($palm)}) and (max-width: #{px2em($small - 1)})'
+);
+
+
+/**
+ * Mobile First Alias
+ *
+ * Listado de los alias con los puntos de scorte para un desarrollo enfocado a
+ * mobile first. Puedes cambiarles el nombre, el valor o añadir más puntos.
+ */
+$breakpoints-mobile-first: (
+  palm:      'screen and (max-width: #{px2em($palm - 1)})',
+  lap:       'screen and (min-width: #{px2em($palm)})',
+  small:     'screen and (min-width: #{px2em($lap)})',
+  desk:      'screen and (min-width: #{px2em($small)})',
+  large:     'screen and (min-width: #{px2em($desk)})',
+  portrait:  'screen and (max-width: #{px2em($lap - 1)})',
+  landscape: 'screen and (min-width: #{px2em($lap)})',
+  touch:     'screen and (max-width: #{px2em($small - 1)})',
+  screen:   'screen and (min-width: #{px2em($small)})',
+  tablet:    'screen and (min-width: #{px2em($palm)}) and (max-width: #{px2em($small - 1)})'
+);
+
+
+/**
+ * Listado de los breakpoints
+ *
+ * Listado con los breakpoints, se utiliza en otros mixin
+ */
+$breakpoints: palm lap small desk large;

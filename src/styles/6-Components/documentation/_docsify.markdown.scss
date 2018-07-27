@@ -1,0 +1,149 @@
+.markdown-section {
+  max-width: $base-wrappers-width;
+  margin: 0 auto;
+  padding: 0 $space;
+}
+
+.markdown-section h1,
+.markdown-section h2,
+.markdown-section h3,
+.markdown-section h4,
+.markdown-section h5,
+.markdown-section h6 {
+  a { color: $base-heading-color; }
+}
+
+.markdown-section h2 {
+  @include fontsize(delta);
+  position: relative;
+
+  &:before {
+    position: absolute;
+    left: -$space;
+    color: gray(gray3);
+    content: '#';
+  }
+}
+
+
+.markdown-section hr {
+  margin: 2em 0;
+  border: 0;
+  border-bottom: 1px solid $border-color;
+}
+
+.markdown-section table {
+  margin: $space 0 double($space);
+  overflow: auto;
+
+  tr { border-bottom: 1px solid $border-color; }
+
+  td {
+    @include fontsize(eta);
+    padding: halve($space);
+    font-weight: font($body-type, regular);
+  }
+
+  th {
+    @include fontsize(theta);
+    padding: halve($space) halve($space) quarter($space);
+    color: gray(gray2);
+    font-weight: font($body-type, bold);
+    text-transform: uppercase;
+  }
+}
+
+.markdown-section pre {
+  margin: double($space) 0;
+}
+
+.markdown-section p.tip,
+.markdown-section p.warn {
+  position: relative;
+  margin: double($space) 0;
+  padding: $space;
+  background-color: gray(gray6);
+
+  &:before {
+    position: absolute;
+    top: 10px;
+    left: -12px;
+    width: 20px;
+    height: 20px;
+    border-radius: halve($space);
+    color: gray(white);
+    font-size: 14px;
+    font-weight: font($body-type, bold);
+    line-height: 20px;
+    text-align: center;
+  }
+
+  code { background-color: gray(gray5); }
+  em { color: gray(gray1); }
+}
+
+.markdown-section p.tip {
+  background-color: transparentize(brand(), .8);
+  // border-left: 4px solid brand();
+
+  // &:before {
+  //   content: '\1D4F2';
+  //   background-color: brand();
+  // }
+}
+
+.markdown-section p.warn {
+  border-left: 4px solid notify(danger);
+
+  &:before {
+    background-color: notify(danger);
+    content: '!';
+  }
+}
+
+.markdown-section strong {
+  color: gray(gray1);
+  font-weight: font($body-type, bold);
+}
+
+.markdown-section em {
+  color: gray(gray1);
+}
+
+.markdown-section blockquote {
+  margin: double($space) 0;
+  padding-left: $space;
+  border-left: 4px solid brand();
+  color: gray(gray3);
+}
+
+.markdown-section iframe {
+  width: 1px;
+  min-width: 100%;
+  border: 0;
+  margin: double($space) 0;
+}
+
+.markdown-section img {
+  box-shadow: 0 3px 10px 1px rgba(0,0,0,.3);
+  border-radius: $border-radius;
+
+  &:after {
+    content: attr(alt);
+  }
+}
+
+.markdown-section .blockExample {
+  margin: triple($space) 0;
+}
+
+@include media(large) {
+  .markdown-section {
+    max-width: $base-wrappers-width-large;
+  }
+}
+
+@include media(portrait) {
+  .markdown-section h2:before { display: none; }
+  .markdown-section .docsify-pagination-container { margin-top: double($space); }
+}

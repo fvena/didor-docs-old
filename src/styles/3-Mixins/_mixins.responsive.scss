@@ -1,0 +1,42 @@
+/**
+ * RESPONSIVE MIXIN
+ */
+
+// sass-lint:disable no-warn
+
+/**
+ * Mixin que genera media query en base a los alias definidos en los setting
+ * `_settings.responsive.scss`. Ejemplo de uso.
+ *
+ * .foo {
+ *   color: green;
+ *
+ *   @include media(palm) {
+ *     color: red;
+ *   }
+ * }
+ */
+
+@mixin media($media-query) {
+  $breakpoints-map: $breakpoints-desk-first;
+
+  // Compruebo si es mobile first
+  @if ($mobile-first) {
+    $breakpoints-map: $breakpoints-mobile-first;
+  }
+
+  // Si el alias existe en la lista que indicamos en el setting
+  @if map-has-key($breakpoints-map, $media-query) {
+
+    // Crea la regla media-query
+    @media #{map-get($breakpoints-map, $media-query)} {
+      @content;
+    }
+  }
+
+  // Si no existe ningun alias muestra una alerta
+  @else {
+    @warn 'Oops! Breakpoint "#{$media-query}" does not exist.';
+  }
+
+}

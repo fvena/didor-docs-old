@@ -1,0 +1,23 @@
+/**
+ * BOX SIZING
+ *
+ * Establece de forma global `box-sizing` como `border-box`.
+ */
+html {
+  box-sizing: border-box;
+}
+
+// sass-lint:disable no-vendor-prefixes
+* {
+  &,
+  &:before,
+  &:after {
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-size-adjust: none;
+    -webkit-touch-callout: none;
+    box-sizing: border-box;
+  }
+}
+// sass-lint:enable no-vendor-prefixes

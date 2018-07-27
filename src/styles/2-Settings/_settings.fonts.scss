@@ -1,0 +1,95 @@
+/**
+ * FONTS SETTINGS
+ */
+
+// sass-lint:disable no-url-domains, no-url-protocols
+
+// Importa tus fuentes aquí
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600');
+
+// sass-lint:disable indentation no-duplicate-properties
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/static/fonts/FiraCode-Regular.eot') format('embedded-opentype'),
+       url('/static/fonts/FiraCode-Regular.woff2') format('woff2'),
+       url('/static/fonts/FiraCode-Regular.woff') format('woff'),
+       url('/static/fonts/FiraCode-Regular.ttf') format('truetype');
+  src: url('/static/fonts/FiraCode-Regular.eot');
+}
+// sass-lint:enable indentation no-duplicate-properties
+
+// Añade una lista con cada fuente que quieras utilizar.
+//
+// font-family:   Obligatorio   Indica la familia tipográfica. Es importante
+//                              escribir la lista de familias entre comillas
+//                              simples: '"Helvetica", sans-serif'.
+//
+// Line-height:   Obligatorio   Indica la altura de línea para esa fuente. Para
+//                              mantener el ritmo vertical, solo se tiene en
+//                              cuenta la altura de línea de la fuente utilizada
+//                              en el body.
+//
+// bold,
+// regular,
+// slim,
+// condensed:     Optativas     Indican los pesos de la fuente, puedes usar
+//                              cualquier nombre que quieras.
+//
+// italic:        Optativa      Indica los estilos de la fuente, puedes usar
+//                              cualquier nombre que quieras.
+//
+
+$body-type: (
+  font-family: '"Source Sans Pro", Helvetica Neue, Arial, sans-serif',
+  regular: 400,
+  bold: 600,
+) !default;
+
+$heading-type: (
+  font-family: '"Source Sans Pro", Helvetica Neue, Arial, sans-serif',
+  bold: 600
+) !default;
+
+$monospace-type: (
+  font-family: '"Fira Code","Roboto Mono", Monaco, courier, monospace',
+  regular: 500
+) !default;
+
+
+
+// Tamaños de fuente para cada tamaño de pantalla.
+// !Importante! Asegurate de que los nombres coincidan con los que has usado en
+// _settings.responsive.
+$root-sizes: (
+  palm:  18,
+  lap:   18,
+  desk:  18,
+  large: 18,
+) !default;
+
+
+
+// Altura de línea base
+$base-line-height: 1.6;
+
+
+
+// Escala para crear los tamaños de texto proporcionalmente
+$modular-scale: 1.175;
+
+
+
+// Listado de la escala modular
+$scale-level: (
+  alpha:     5,
+  beta:      4,
+  gamma:     3,
+  delta:     2,
+  epsilon:   1,
+  zeta:      0,  // Base size
+  eta:      -1,
+  theta:    -2,
+  iota:     -3
+) !default;

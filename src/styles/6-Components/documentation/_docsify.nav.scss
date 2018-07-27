@@ -1,0 +1,127 @@
+.app-nav {
+
+  &.no-badge { padding-right: $space; }
+
+  ul,
+  li {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    list-style: none;
+  }
+
+  & > ul > li {
+    margin: 0 halve($space);
+  }
+
+  & > ul > li > p {
+    height: $header-height;
+    line-height: $header-height;
+    cursor: pointer;
+  }
+
+  p { margin: 0; }
+
+  a { color: gray(gray2); }
+
+  a.active,
+  a:hover {
+    color: brand();
+  }
+
+  p > a.active { border-bottom: 2px solid brand(); }
+
+  li:hover ul { display: block; }
+
+  li ul {
+    display: none;
+    position: absolute;
+    top: double($space) + quarter($space);
+    right: halve(- $space);
+    max-height: calc(100vh - #{double($space)});
+    padding: halve($space) 0;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    border-bottom-color: gray(gray4);
+    background-color: gray(white);
+    text-align: left;
+    overflow-y: auto;
+  }
+
+  li ul li {
+    @include fontsize(eta);
+    display: block;
+    white-space: nowrap;
+
+    a {
+      display: block;
+      padding: 0 $space;
+    }
+  }
+}
+
+.github-corner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  border-bottom: 0;
+  text-decoration: none;
+  z-index: 2;
+}
+
+.github-corner:hover .octo-arm {
+  animation: a .56s ease-in-out;
+}
+
+.github-corner svg {
+  width: triple($space);
+  height: triple($space);
+  color: gray(white);
+  fill: brand();
+}
+
+@keyframes a {
+  0%,
+  to {
+    transform: rotate(0);
+  }
+
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+
+@include media(screen) {
+  // .app-nav { width: calc(100% - #{$sidebar-width-large} - #{double($space)}); }
+}
+
+@include media(portrait) {
+  .app-nav {
+    // width: calc(100% - #{double($space)});
+    height: double($space);
+    padding-right: double($space);
+  }
+
+  .app-nav > ul > li > p {
+    height: double($space);
+    line-height: double($space);
+  }
+
+  .github-corner svg {
+    width: double($space);
+    height: double($space);
+  }
+}
+
+@include media(palm) {
+  .app-nav,
+  .github-corner {
+    display: none;
+  }
+}

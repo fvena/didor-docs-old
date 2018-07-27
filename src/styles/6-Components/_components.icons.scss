@@ -1,0 +1,55 @@
+/**
+ * ICONOS
+ *
+ * Estilos para los iconos
+ */
+
+$icon-clipboard: '\ea01';
+$icon-desktop: '\ea02';
+$icon-lap: '\ea03';
+$icon-large: '\ea04';
+$icon-palm: '\ea05';
+$icon-small: '\ea06';
+
+
+// sass-lint:disable indentation no-duplicate-properties
+@font-face {
+  font-family: didor;
+  font-style: normal;
+  font-weight: normal;
+  src: url('/static/fonts/didor.eot');
+  src: url('/static/fonts/didor.eot?#iefix') format('embedded-opentype'), url('/static/fonts/didor.woff2') format('woff2'), url('/static/fonts/didor.woff') format('woff'), url('/static/fonts/didor.ttf') format('truetype'), url('/static/fonts/didor.svg#didor') format('svg');
+}
+// sass-lint:enable indentation no-duplicate-properties
+
+
+%icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'didor' !important;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-transform: none;
+  speak: none;
+
+  /* Better Font Rendering =========== */
+  // sass-lint:disable no-vendor-prefixes
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  // sass-lint:enable no-vendor-prefixes
+}
+
+
+[class^='icon-'],
+[class*=' icon-'] {
+  @extend %icon;
+}
+
+
+.icon-clipboard:before { content: '\ea01'; }
+.icon-desktop:before { content: '\ea02'; }
+.icon-lap:before { content: '\ea03'; }
+.icon-large:before { content: '\ea04'; }
+.icon-palm:before { content: '\ea05'; }
+.icon-small:before { content: '\ea06'; }

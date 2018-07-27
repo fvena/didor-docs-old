@@ -1,0 +1,159 @@
+/*----------------------------------------------------------------------------*\
+  CHECKBOX
+\*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*\
+  TEMPLATE
+
+  <div>
+    <input type="checkbox" id="test1" />
+    <label for="test1">Red</label>
+  </div>
+\*----------------------------------------------------------------------------*/
+
+
+
+
+/*----------------------------------------------------------------------------*\
+  VARIABLES
+\*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*\
+  COMPONENTS
+\*----------------------------------------------------------------------------*/
+
+/*
+ * Base for label styling
+ */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  bottom: 0;
+  top: halve(-$space);
+  left: halve(-$space);
+  width: double($space);
+  height: double($space);
+  margin: 0;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+
+
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: calc(#{$space} + #{quarter($space)});
+  outline: none;
+  height: $space;
+  line-height: $space;
+  margin-bottom: 0;
+}
+
+
+/*
+ * Checkbox aspect
+ */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 18px;
+  height: 18px;
+  border: 0;
+  background-color: white;
+  border-radius: 4px;
+  outline: none;
+}
+
+
+/*
+ * Checked mark aspect
+ */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  transition: all .2s;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='UTF-8'?%3E %3Csvg version='1.1' viewBox='0 0 8 6' width='11px' xmlns='http://www.w3.org/2000/svg'%3E %3Ctitle%3EPath 63 Copy%3C/title%3E %3Cdesc%3ECreated with Sketch.%3C/desc%3E %3Cg fill='none' fill-rule='evenodd' transform='translate(-5 -6)'%3E %3Cpolyline points='6 8.9399 8.03 10.97 12 7' stroke='#2b303b' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+
+
+
+/*
+ * Checked mark aspect changes
+ */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+
+
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/*
+ * Disabled checkbox
+ */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+
+
+[type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+
+
+[type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+
+
+/*
+ * Accessibility
+ */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+  //border: 2px dotted blue;
+}
+
+
+/*
+ * Hover style just for information
+ */
+label:hover:before {
+  // border: 2px solid brand() !important;
+}
+
+
+label:hover:before,
+label:active:before,
+label:focus:before { outline: none; }
+
+
+/*----------------------------------------------------------------------------*\
+  STATES
+\*----------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------*\
+  RESPONSIVE
+\*----------------------------------------------------------------------------*/

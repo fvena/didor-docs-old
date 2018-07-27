@@ -1,0 +1,43 @@
+.icons-demo {
+  margin: triple($space) 0;
+}
+
+.iconBlock {
+  display: inline-block;
+  position: relative;
+  width: 100px;
+  padding: halve($space) 0;
+  text-align: center;
+  cursor: pointer;
+  vertical-align: top;
+
+  &:hover:before { opacity: 1; }
+
+  &:before {
+    @include fontsize(eta);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: halve($space) 0;
+    transition: opacity .3s;
+    background-color: rgba(255, 255, 255, .9);
+    color: brand();
+    line-height: 35px;
+    content: 'Copiar';
+    opacity: 0;
+  }
+}
+
+.iconBlock__icon {
+  height: 35px;
+  color: gray(gray1);
+  font-size: 35px;
+}
+
+.iconBlock__name {
+  @include fontsize(theta);
+  margin-top: halve($space);
+  color: gray(gray2);
+}

@@ -1,0 +1,39 @@
+.tab {
+  margin-bottom: $space;
+  border-bottom: 1px solid $border-color;
+
+  li {
+    display: inline-block;
+    margin-left: 0;
+    list-style: none;
+  }
+}
+
+.tabcontent {
+  width: 100%;
+}
+
+.blockExample .tabcontent {
+  margin: 0 !important;
+}
+
+// .tab + .tabcontent {
+//   display: block;
+// }
+
+
+.tablinks {
+  @include fontsize(theta);
+
+  display: inline-block;
+  padding: 0 $space quarter($space);
+  color: gray(gray3);
+  text-transform: uppercase;
+
+  &:hover { color: gray(gray1); }
+
+  &.active {
+    border-bottom: 2px solid brand();
+    color: gray(gray1);
+  }
+}

@@ -1,0 +1,64 @@
+.colors-demo {
+  margin: double($space) 0;
+}
+
+.colorBlock__col {
+  display: inline-block;
+  width: calc(25% - #{halve($space)});
+  margin-right: halve($space);
+  margin-bottom: halve($space);
+  border-radius: $border-radius;
+  text-align: left;
+  overflow: hidden;
+
+  &:nth-of-type(4n + 0) {
+    margin-right: 0;
+  }
+}
+
+.colorBlock {
+  position: relative;
+  height: triple($space);
+  color: gray(white);
+  line-height: 1.1rem;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover {
+    .colorBlock__name { opacity: 0; }
+    &:before { opacity: 1; }
+  }
+
+  &:before {
+    content: 'Copiar';
+    opacity: 0;
+  }
+}
+
+.colorBlock__hex {
+  margin-top: 3px;
+  opacity: .7;
+}
+
+.colorBlock:before,
+.colorBlock__name {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  padding: 0 halve($space);
+  transform: translate(-50%, -50%);
+}
+
+@include media(lap) {
+  .colorBlock__col { width: calc(32.9% - #{quarter($space)}); }
+  .colorBlock__col:nth-of-type(3n + 0) { margin-right: 0; }
+  .colorBlock__col:nth-of-type(4n + 0) { margin-right: halve($space); }
+}
+
+@include media(palm) {
+  .colorBlock__col { width: calc(50% - #{quarter($space)}); }
+  .colorBlock__col:nth-of-type(2n + 0) { margin-right: 0; }
+}

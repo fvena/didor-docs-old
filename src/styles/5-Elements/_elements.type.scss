@@ -1,0 +1,201 @@
+/**
+ * TYPE
+ */
+$type-transparent-color: rgba(0, 0, 0, 0);
+
+// Headings. OpenType ligatures, discretionary ligatures and lining figures enabled if available.
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $base-heading-color;
+  font-family: $base-heading-family;
+  font-style: normal;
+  font-weight: $base-heading-weight;
+}
+
+// Heading level 1.
+h1,
+.alpha {
+  @include fontsize(alpha);
+}
+
+// Heading level 2.
+h2,
+.beta {
+  @include fontsize(beta);
+}
+
+// Heading level 3.
+h3,
+.gamma {
+  @include fontsize(gamma);
+}
+
+// Heading level 4.
+h4,
+.delta {
+  @include fontsize(delta);
+}
+
+// Heading level 5.
+h5,
+.epsilon {
+  @include fontsize(epsilon);
+}
+
+// Heading level 6.
+h6,
+.zeta {
+  @include fontsize(zeta);
+}
+
+// Parrafos
+p {
+  @include fontsize(zeta);
+}
+
+
+// Bold.
+b,
+strong,
+.bold {
+  font-weight: font($body-type, bold);
+}
+
+// Italic.
+em,
+i,
+.italic {
+  font-style: italic;
+}
+
+// Caption y texto en linea pequeño.
+small,
+.caption {
+  @include fontsize(theta);
+  font-family: font($heading-type, font-family);
+  font-style: normal;
+  font-weight: font($heading-type, bold);
+}
+
+small {
+  line-height: 1rem;
+}
+
+.caption {
+  color: $caption-colour;
+  line-height: $space;
+}
+
+// Mejorando el espacio entre los header y los caption.
+h1 + .caption,
+h2 + .caption,
+h3 + .caption,
+.alpha + .caption,
+.beta + .caption,
+.gamma + .caption {
+  margin-top: -$space;
+}
+
+.delta + .caption,
+.epsilon + .caption,
+.zeta + .caption {
+  margin-top: 0;
+}
+
+
+
+// Quotes.
+blockquote {
+  @include fontsize(zeta);
+  margin-left: -1rem;
+  padding: halve($space) 1rem;
+  border-left: .15rem solid brand();
+  font-style: italic;
+
+  @include media(palm) {
+    margin-left: 0;
+  }
+
+  p:last-of-type { margin-bottom: 0; }
+}
+
+
+// Code block.
+code,
+pre {
+  @include fontsize(theta);
+  background-color: $code-background-colour;
+  font-family: font($monospace-type, font-family);
+  font-weight: font($monospace-type, regular);
+  line-height: 1.2rem;
+}
+
+pre {
+  display: block;
+  position: relative;
+  padding: $space;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  overflow: auto;
+  word-break: normal;
+  hyphens: none;
+  tab-size: 4;
+  word-wrap: normal;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: $space;
+    padding: halve($space);
+    color: gray(gray2);
+    font-size: .6rem;
+    font-weight: bold;
+    letter-spacing: .08em;
+    text-align: right;
+    text-transform: uppercase;
+    content: attr(data-lang);
+  }
+}
+
+// Inline code
+:not(pre) > code {
+  padding: .1rem .3rem;
+  border-radius: $border-radius;
+  color: brand(brand-dark);
+  line-height: $space;
+  white-space: nowrap;
+}
+
+// Horizontal rule.
+hr {
+  margin: 0;
+  padding-top: double($space);
+  padding-bottom: double($space);
+  border: 0;
+  background-image: linear-gradient(to bottom, $type-transparent-color 50%, $caption-colour 50%);
+  background-repeat: repeat-x;
+  background-position: 0 50%;
+  background-size: 100% .15rem;
+
+}
+
+
+// Ritmo vertical
+p,
+h1,
+h2,
+h3,
+ul,
+ol,
+dl,
+table,
+blockquote,
+pre {
+  margin-bottom: $space;
+}

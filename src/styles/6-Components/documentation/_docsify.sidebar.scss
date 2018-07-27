@@ -1,0 +1,220 @@
+// Título del sidebar
+.app-name-link {
+  @include fontsize(iota);
+  display: block;
+  margin-bottom: double($space);
+  color: gray(gray2);
+  font-family: $base-heading-family;
+  font-weight: $base-heading-weight;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+
+  img {
+    display: block;
+    width: 60px;
+    margin: $space auto halve($space);
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    margin: $space auto halve($space);
+    width: 60px;
+    height: 60px;
+    background-image: url('/static/img/logo.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+  }
+
+  &:after {
+    content: 'v.1.0.2';
+    @include fontsize(iota);
+    display: inline-block;
+    margin-left: $space;
+    color: gray(white);
+    font-family: $base-heading-family;
+    font-weight: $base-heading-weight;
+    letter-spacing: 2px;
+    background-color: gray(gray2);
+    padding: 0 quarter($space);
+    border-radius: $border-radius;
+    line-height: $space;
+  }
+}
+
+// Menú de navegación del sidebar
+.sidebar > nav,
+.sidebar-nav {
+  li {
+    margin: 0;
+    list-style: none;
+  }
+
+  li a {
+    @include fontsize(eta);
+    display: block;
+    padding: .15rem 0;
+    color: gray(gray2);
+    font-weight: font($body-type, regular);
+    text-transform: none;
+
+    &:hover {
+      color: gray(gray1);
+    }
+  }
+
+  li.active a {
+    position: relative;
+    color: gray(gray1);
+
+    &:after {
+      position: absolute;
+      top: 0;
+      left: -$space;
+      width: calc(100% + #{double($space)});
+      height: 100%;
+      border-right: 3px solid brand();
+      background-color: gray(gray5);
+      content: '';
+      z-index: -1;
+    }
+  }
+
+  ul > li > p {
+    @include fontsize(theta);
+    margin-bottom: 0;
+    color: gray(gray1);
+    font-weight: font($body-type, bold);
+    text-transform: uppercase;
+  }
+
+  ul > li > ul {
+    margin-top: quarter($space);
+    margin-bottom: $space;
+    border-top: 1px solid $border-color;
+  }
+}
+
+.app-sub-sidebar {
+  border-top: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+
+  li { margin-left: halve($space); }
+  li:last-of-type a { padding-bottom: halve($space); }
+
+  .apiMethod {
+    font-size: .6em;
+    bottom: .2em;
+    position: relative;
+    margin-right: 4px;
+    padding: 0;
+    width: 45px;
+    text-align: center;
+  }
+}
+
+.section-link:after {
+  left: -(double($space) / 2) - quarter($space) !important;
+  width: calc(100% + #{double($space) + quarter($space)}) !important;
+}
+
+.sidebar-toggle {
+  position: fixed;
+  top: 0;
+  left: $sidebar-width;
+  width: double($space);
+  height: triple($space);
+  transition: .5s cubic-bezier(.91, .06, .47, 1.05) left;
+  border: 0;
+  outline: none;
+  background-color: rgba(255, 255, 255, .9);
+  line-height: triple($space);
+  text-align: center;
+  cursor: pointer;
+  z-index: 10;
+
+  &:hover { color: brand(brand-dark); }
+
+  &:before {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    transition: .5s cubic-bezier(.91, .06, .47, 1.05) width;
+    background-color: rgba(255, 255, 255, .9);
+    content: '';
+  }
+}
+
+.sidebar-toggle-button {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  z-index: 1;
+}
+
+.sidebar-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  margin-bottom: 4px;
+  background-color: brand();
+}
+
+@include media(screen) {
+  .sidebar-nav {
+    padding: 0 halve($space);
+
+    li.active a:after {
+      left: -(triple($space) / 2);
+      width: calc(100% + #{triple($space)});
+    }
+  }
+
+  .section-link:after {
+    left: -(triple($space) / 2) - quarter($space) !important;
+    width: calc(100% + #{triple($space) + quarter($space)}) !important;
+  }
+
+  .sidebar-toggle { left: $sidebar-width-large; }
+}
+
+@include media(portrait) {
+  .sidebar > nav,
+  .sidebar-nav {
+    li a { @include fontsize(zeta); padding: quarter($space) 0;}
+    ul > li > p { @include fontsize(eta); }
+  }
+
+  .sidebar-toggle {
+    left: 0;
+    height: double($space);
+    line-height: double($space);
+  }
+
+  .app-name-link:after { @include fontsize(eta); }
+}
+
+@include media(lap) {
+  .sidebar > nav { display: none; }
+}
+
+@include media(palm) {
+  .sidebar > h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: 0;
+    padding-top: halve($space);
+  }
+
+  .sidebar { padding-top: 10rem; }
+
+  .app-name-link:after { margin-bottom: $space;}
+}
