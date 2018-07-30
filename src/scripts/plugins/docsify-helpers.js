@@ -1,4 +1,5 @@
 import Prism from 'prismjs';
+import 'prismjs/components/prism-markdown';
 
 
 /**
@@ -35,7 +36,7 @@ function renderCode(content) {
   let match = CODE_RESERVER_WORDS.exec(content);
 
   while (match != null) {
-    const demo = highligtCode(`\`\`\`${match[1]}\`\`\``);
+    const demo = highligtCode(`${match[1]}`);
     content = content.replace(match[0], demo); // eslint-disable-line
 
     match = CODE_RESERVER_WORDS.exec(content);
@@ -48,9 +49,8 @@ function renderCode(content) {
 /**
  * installation
  */
-async function install(hook) {
+const install = async (hook) => {
   hook.beforeEach((content) => renderCode(content));
-}
+};
 
-// eslint-disable-next-line
-if (window.$docsify) window.$docsify.plugins = [].concat(install, $docsify.plugins);
+export default install;

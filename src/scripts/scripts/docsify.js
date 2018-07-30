@@ -8,7 +8,7 @@ const config = {
     password: 'foobarfoo',
   },
   demo: {
-    css: 'src/stylesheets/didor.css',
+    css: '/static/didor.css',
   },
   versions: [
     {

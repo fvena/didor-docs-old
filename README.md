@@ -1,45 +1,45 @@
-# Webpack Simple Starter
-A simple webpack starter without framework (Like Vue, React, Angular, etc.). This project is inspired from [**vue-cli webpack project**](https://github.com/vuejs/vue-cli#vue-build)
+# Generador de documentación
+Didor docs es un generador de documentación online. Utiliza [docsify](https://docsify.js.org/) como base, y se han creado algunos plugins para añadirle características y funcionalidades nuevas.
 
-## Getting Started
-First, install the modules that the project needs.
+## Inicio rápido
+Primero, instalar los módulos que necesita el proyecto.
 ```bash
 $ npm install
 ```
 
-Now, let's start developing.
+Ahora, podemos empezar a desarrollar.
 ```bash
 $ npm run dev
 ```
 
-Finally development process done. Let's export for production.
+Finalmente cuando el desarrollo esté terminado, lo exportaremos para producción.
 ```bash
 $ npm run build
 ```
 
-That's it!. Files are ready to under the `dist/` directory for production.
+¡Es todo!. Los archivos están listos para subirlos a producción en la carpeta `dist\`.
 
-## What's in this project?
+## ¿Como está desarrollado este proyecto?
 
-### Directories
-There are four main directories in project. This directories like below:
+### Directorios
+Hay cuatro directorios principales en el proyecto
+:
 ```
-build/		# Webpack configurations
-config/		# Dev and prod configurations
-src/ 		# Project development files
-|_ scripts/	# Javascript files
-|_ styles/	# Style files (scss)
-|_ views/	# HTML templates (pug)
-static/		# Static files (Like fonts, images)
+build/		# Configuración de Webpack
+config/		# Configuración para Desarrollo y Producción
+src/ 		  # Archivos del proyecto
+|_ scripts/	# Archivos Javascript
+|_ styles/	# Archivos estilos (scss)
+|_ views/	# Archivos con las Plantillas HTML (pug)
+static/		# Archivos estáticos (Como fuentes, imágenes)
 ```
 
-### Used Frameworks
-- Bootstrap and depended javascript frameworks like jquery. (Client)
-- Babel.js for ES6 compile
-- Sass for CSS
-- Pug for HTML template
+### Frameworks utilizados
+- Babel.js para utilizar ES6
+- Sass para CSS
+- Pug para las plantillas HTML
 
-Also, this project is supporting hot reload and include **eslint**
+También soporta **hot reload** y **eslint**
 
-## License
-This project is under the MIT license.
+## Licencia
+Este proyecto se distribuye bajo una licencia MIT.

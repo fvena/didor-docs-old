@@ -18,6 +18,6 @@ queremos utilizar.
 | `notify` | Listado con los colores incluidos en el `$color-notify-map`. |
 
 
-``` markdown
+[```
 colors[brand]>
-```
+```]

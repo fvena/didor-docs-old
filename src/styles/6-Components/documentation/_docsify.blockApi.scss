@@ -20,7 +20,7 @@
   }
 
   .content {
-    padding-top: triple($space);
+    padding-top: $space;
   }
 
   .markdown-section {
@@ -31,7 +31,7 @@
   }
 
   .docsify-pagination-container {
-    padding-right: $space;
+    padding: 0 $space;
     margin-top: 0;
     border-top: 0;
   }

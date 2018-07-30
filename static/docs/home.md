@@ -29,7 +29,7 @@ Se han creado varios plugins con nuevas funcionalidades.
 </p>
 ```
 
-```demo[html]
+```[html]
 <p>
   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 </p>
@@ -55,7 +55,7 @@ Se han creado varios plugins con nuevas funcionalidades.
 </p>
 ```
 
-```demo[html]
+```[html]
 <p>
   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 </p>
@@ -67,7 +67,7 @@ Se han creado varios plugins con nuevas funcionalidades.
 </p>
 ```
 
-```demo[scss]
+```[scss]
 $color: #FF0000;
 
 p {
@@ -75,7 +75,7 @@ p {
 }
 ```
 
-```demo[js]
+```[js]
 function loadJSON(file) {
   return new Promise(function(resolve, reject) {
     var xobj = new XMLHttpRequest();

@@ -1,4 +1,4 @@
-function copyToClipboard (str) {
+const copyToClipboard = (str) => {
   const el = document.createElement('textarea');
   el.value = str;
   el.setAttribute('readonly', '');
@@ -8,4 +8,6 @@ function copyToClipboard (str) {
   el.select();
   document.execCommand('copy');
   document.body.removeChild(el);
-}
+};
+
+export default copyToClipboard;

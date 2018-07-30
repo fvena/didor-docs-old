@@ -1,14 +1,33 @@
+import Prism from 'prismjs';
+import { parseHTML } from './docsify-utils';
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-scss';
+import 'prismjs/components/prism-markdown';
+import 'prismjs/components/prism-json';
+
+
+/**
+ * constants
+ */
+
+const REG_CODE = /(?!```\s)```apiCode(\[(.*)?\])?(\((.*)?\))?((.*\n)+?)?```(?!\s```)/gm;
+const REG_EXAMPLE = /(?!```\s)```apiExample((.*\n)+?)?```(?!\s```)/gm;
+const REG_URL = /^(?!```\s)apiUrl(\[(.*)?\])?(\((.*)?\))?((.*)+?)?(?!\s```)$/gm;
+const REG_METHOD = /## (GET|POST|PUT|DELETE|PATCH)+?/gm;
+
+
 function apiCode(code, title, language) {
-  language = (language) ? language : 'js';
+  language = language || 'js';
   title = (title) ? `<div class="apiCode__title">${title}</div>` : '';
   code = code.trim().replace(/@DOCSIFY_QM@/g, '`');
   const hl = Prism.highlight(
     code,
-    Prism.languages[language] || Prism.languages.markup
-  )
+    Prism.languages[language] || Prism.languages.markup,
+  );
 
-  return `<div class="apiCodeExample">${title}<pre id="${language}" v-pre data-lang="${language}" class="tabcontent"><code class="lang-${language}">${hl}</code></pre></div>`
+  return `<div class="apiCodeExample">${title}<pre id="${language}" v-pre data-lang="${language}" class="tabcontent"><code class="lang-${language}">${hl}</code></pre></div>`;
 }
+
 
 function apiExample(data, id) {
   let params = '';
@@ -18,7 +37,7 @@ function apiExample(data, id) {
   data.params.forEach((param) => {
     params += `<div class="apiForm__row">
                 <div class="apiForm__name">
-                  <input type="checkbox" ${(param.required) ? 'checked disabled' : '' }>
+                  <input type="checkbox" ${(param.required) ? 'checked disabled' : ''}>
                   <label>${param.name}</label>
                 </div>
                 <input class="apiForm__input" type="text" name="${param.name}" value="${(param.default) ? param.default : ''}" placeholder="null">
@@ -40,7 +59,7 @@ function apiExample(data, id) {
         <div class="apiForm__header">
           <div class="apiForm__header__method">${data.method}</div>
           <div class="apiForm__header__url">${data.url}</div>
-          <button class="apiForm__header__submit" onclick="api(event)">Probar</button>
+          <button class="apiForm__header__submit" onclick="apiRest(event)">Probar</button>
         </div>
         ${params}
       </form>
@@ -68,14 +87,11 @@ function apiExample(data, id) {
     `;
   }
 
-  return template
-    .replace(/\n/g, '')
-    .replace(/[\t ]+</g, '<')
-    .replace(/>[\t ]+</g, '><')
-    .replace(/>[\t ]+$/g, '>');
+  return parseHTML(template);
 }
 
-async function install(hook, vm) {
+
+const install = async (hook) => {
   let api = false;
 
   hook.beforeEach((content) => {
@@ -84,59 +100,51 @@ async function install(hook, vm) {
     if (api) {
       content = content.substring(4);
 
-      const regCode = /(?!```\s)```apiCode(\[(.*)?\])?(\((.*)?\))?((.*\n)+?)?```(?!\s```)/gm;
-      const regExample = /(?!```\s)```apiExample((.*\n)+?)?```(?!\s```)/gm;
-      const regUrl = /^(?!```\s)apiUrl(\[(.*)?\])?(\((.*)?\))?((.*)+?)?(?!\s```)$/gm;
-      const regTitleMethod = /## (GET|POST|PUT|DELETE|PATCH)+?/gm;
-
       // apiCode
-      let matchCode = regCode.exec(content);
+      let matchCode = REG_CODE.exec(content);
 
       while (matchCode != null) {
         const code = apiCode(matchCode[5], matchCode[4], matchCode[2]);
         content = content.replace(matchCode[0], code);
-        matchCode = regCode.exec(content);
+        matchCode = REG_CODE.exec(content);
       }
 
 
       // apiUrl
-      let matchUrl = regUrl.exec(content);
+      let matchUrl = REG_URL.exec(content);
 
       while (matchUrl != null) {
-        let template = (`
+        const template = (`
           <div class="apiUrl">
             <span class="apiUrl__method ${matchUrl[2].toLowerCase()}">${matchUrl[2]}</span>
             ${matchUrl[4]}
           </div>
-        `).replace(/\n/g, '')
-          .replace(/[\t ]+</g, '<')
-          .replace(/>[\t ]+</g, '><')
-          .replace(/>[\t ]+$/g, '>');
+        `);
 
-        content = content.replace(matchUrl[0], template);
-        matchUrl = regUrl.exec(content);
+        content = content.replace(matchUrl[0], parseHTML(template));
+        matchUrl = REG_URL.exec(content);
       }
 
 
       // apiExample
-      let matchExample = regExample.exec(content);
+      let matchExample = REG_EXAMPLE.exec(content);
       let pos = 0;
 
       while (matchExample !== null) {
         const example = apiExample(JSON.parse(matchExample[1]), pos);
         content = content.replace(matchExample[0], example);
-        pos++;
-        matchExample = regExample.exec(content);
+        pos += 1;
+        matchExample = REG_EXAMPLE.exec(content);
       }
 
 
       // apiTitleMethod
-      let matchTitleMethod = regTitleMethod.exec(content);
+      let matchTitleMethod = REG_METHOD.exec(content);
 
       while (matchTitleMethod !== null) {
         const titleMethod = `## <span class="apiMethod ${matchTitleMethod[1].toLowerCase()}">${matchTitleMethod[1]}</span>`;
         content = content.replace(matchTitleMethod[0], titleMethod);
-        matchTitleMethod = regTitleMethod.exec(content);
+        matchTitleMethod = REG_METHOD.exec(content);
       }
     }
 
@@ -185,6 +193,6 @@ async function install(hook, vm) {
       document.querySelector('body').className = document.querySelector('body').className.replace(' apiSection', '');
     }
   });
-}
+};
 
-if (window.$docsify) window.$docsify.plugins = [].concat(install, $docsify.plugins)
+export default install;
