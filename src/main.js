@@ -2,7 +2,7 @@
 import './styles/didor.scss';
 
 // Scripts
-// import './scripts/scripts/docsify';
+import config from '../static/config.json';
 import showTab from './scripts/scripts/tabs';
 import apiRest from './scripts/scripts/apiRest';
 import copyToClipboard from './scripts/scripts/copyToClipboard';
@@ -18,30 +18,7 @@ import helpers from './scripts/plugins/docsify-helpers';
 import colors from './scripts/plugins/docsify-colors';
 import icons from './scripts/plugins/docsify-icons';
 import api from './scripts/plugins/docsify-api';
-
-const config = {
-  name: 'Didor framework',
-  repo: 'https://github.com/fvena/didor-framework2',
-  homepage: 'home.md',
-  sassVar: '/static/sassVar.json',
-  demo: {
-    css: '/static/didor.css',
-  },
-  versions: [
-    {
-      name: '0.7.0',
-      basePath: '/static/docs/',
-    },
-    {
-      name: '0.8.0',
-      basePath: '/static/docs/',
-    },
-    {
-      name: '0.9.0',
-      basePath: '/static/docs/',
-    },
-  ],
-};
+import versions from './scripts/plugins/docsify-versions';
 
 
 window.showTab = showTab;
@@ -77,4 +54,5 @@ window.$docsify.plugins = [
   demo,
   tabs,
   api,
+  versions,
 ].concat(window.$docsify.plugins || []);

@@ -1,0 +1,44 @@
+.versions {
+  @include fontsize(iota);
+  position: relative;
+  display: inline-block;
+  font-family: $base-heading-family;
+  font-weight: $base-heading-weight;
+
+  select {
+    color: gray(white);
+    background-color: gray(gray2);
+    padding: 0 quarter($space);
+    padding-right: .75 * $space;
+    border: 0;
+    margin: 0;
+    border-radius: $border-radius;
+    letter-spacing: 2px;
+    text-indent: 0.01px;
+    text-overflow: '';
+    -webkit-appearance: button;
+    line-height: 1.2rem;
+    outline: 0;
+    cursor: pointer;
+
+    &[disabled] {
+      color: rgba(0,0,0,.3);
+    }
+
+    &[disabled]:after {
+      color: rgba(0,0,0,.1);
+    }
+  }
+
+  &:after {
+    content: "\25BC";
+    position: absolute;
+    pointer-events: none;
+    text-align: center;
+    font-size: .8em;
+    line-height: 1.1rem;
+    right: quarter($space);
+    top: 0;
+    color: gray(white);
+  }
+}
