@@ -2,7 +2,6 @@
 .app-name-link {
   @include fontsize(iota);
   display: block;
-  margin-bottom: double($space);
   color: gray(gray2);
   font-family: $base-heading-family;
   font-weight: $base-heading-weight;
@@ -27,21 +26,12 @@
     background-position: center center;
     background-size: contain;
   }
+}
 
-  &:after {
-    content: 'v.1.0.2';
-    @include fontsize(iota);
-    display: inline-block;
-    margin-left: $space;
-    color: gray(white);
-    font-family: $base-heading-family;
-    font-weight: $base-heading-weight;
-    letter-spacing: 2px;
-    background-color: gray(gray2);
-    padding: 0 quarter($space);
-    border-radius: $border-radius;
-    line-height: $space;
-  }
+.sidebar > h1 {
+  text-align: center;
+  margin-bottom: double($space);
+  line-height: 1rem;
 }
 
 // Menú de navegación del sidebar
