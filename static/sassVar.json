@@ -1,0 +1,51 @@
+{
+  "colors": {
+    "brand": {
+      "brand": "#28a2b8",
+      "brand-dark": "#238c9e",
+      "brand-light": "#4bbdd1",
+      "Aquamarina": "#61afa9",
+      "Aquamarina-dark": "#4a938d",
+      "Aquamarina-light": "#83c0bb",
+      "purple": "#888597",
+      "purple-dark": "#6e6b7e",
+      "purple-light": "#a3a1ae",
+      "pink": "#ed6673",
+      "pink-dark": "#e83849",
+      "pink-light": "#f2949d",
+      "red": "#ff715b",
+      "red-dark": "#ff4528",
+      "red-light": "#ff9d8e",
+      "yellow": "#fac05e",
+      "yellow-dark": "#f8ad2d",
+      "yellow-light": "#fcd38f",
+      "green": "#a2be97",
+      "green-dark": "#86aa78",
+      "green-light": "#bed2b6"
+    },
+    "gray": {
+      "black": "#000000",
+      "gray1": "#3b4c53",
+      "gray2": "#6f777b",
+      "gray3": "#9da6aa",
+      "gray4": "#cfd6da",
+      "gray5": "#e7ebee",
+      "gray6": "#f5f6f8",
+      "white": "#ffffff"
+    },
+    "notify": {
+      "success": "#a2be97",
+      "warning": "#fac05e",
+      "danger": "#ed6673",
+      "info": "#9da6aa"
+    }
+  },
+  "icons": [
+    "icon-clipboard",
+    "icon-desktop",
+    "icon-lap",
+    "icon-large",
+    "icon-palm",
+    "icon-small"
+  ]
+}

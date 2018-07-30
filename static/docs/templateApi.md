@@ -50,7 +50,7 @@ indicar algunos parámetros de configuración en formato `json`.
 
 ![Api Block con peticiones interactivas](images/api.png)
 
-```demo[markdown]
+[```
 ```apiExample
 {
   "url": "http://jsonplaceholder.typicode.com/todos",
@@ -73,4 +73,4 @@ indicar algunos parámetros de configuración en formato `json`.
   ]
 }
 ```
-```
+```]

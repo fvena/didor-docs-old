@@ -1,14 +1,22 @@
 {
-  "name": "webpack-simple-starter",
-  "version": "1.0.0",
-  "description": "A simple webpack starter without framework (Like Vue, React, Angular, etc.)",
+  "name": "didor-docs",
+  "version": "0.0.1",
+  "description": "Docuentation site generator",
+  "homepage": "https://github.com/fvena/didor-docs#readme",
+  "author": "Francisco Vena <fvena32@gmail.com> (http://www.fvena.com/)",
+  "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node build/dev-server.js",
     "build": "node build/build.js"
   },
-  "author": "Sinan Mutlu <sinanm17@gmail.com>",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fvena/didor-docs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fvena/didor-docs/issues"
+  },
   "devDependencies": {
     "autoprefixer": "^7.1.6",
     "babel-core": "^6.26.0",
@@ -56,6 +64,7 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
+    "axios": "0.18.0",
     "docsify": "4.7.0",
     "docsify-copy-code": "2.0.2",
     "docsify-pagination": "2.3.4",

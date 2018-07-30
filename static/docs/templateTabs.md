@@ -9,15 +9,15 @@ diferentes bloques de código y un [demo](templateDemo.md).
 <h1 class='color-brand'>Hola Mundo</h1>
 ```
 
-```demo[html]
+```[html]
 <h1>Hola Mundo</h1>
 ```
 
-```demo[scss]
+```[scss]
 h1 { color: brand(); }
 ```
 
-```demo[js]
+```[js]
 console.log('Hola Mundo')
 ```
 </div>
@@ -35,22 +35,22 @@ para poder generar las pestañas, siendo `language` el lenguaje del bloque de c�
 utilizar un código más complejo para la demo, y uno más simple para representar
 el código utilizado.
 
-```demo[markdown]
+[```
 <div class="blockExample">
   ```demo
   <h1 class="color-brand">Hola Mundo</h1>
   ```
 
-  ```demo[html]
+  ```[html]
   <h1>Hola Mundo</h1>
   ```
 
-  ```demo[scss]
+  ```[scss]
   h1 { color: brand(); }
   ```
 
-  ```demo[js]
+  ```[js]
   console.log('Hola Mundo')
   ```
 </div>
-```
+```]

@@ -1,7 +1,14 @@
+import axios from 'axios';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-scss';
+import 'prismjs/components/prism-markdown';
+import 'prismjs/components/prism-json';
+
 function getParams(form, method) {
   const params = {};
 
-  for (let i = 0; i < form.length; i++) {
+  for (let i = 0; i < form.length; i += 1) {
     const input = form.elements[i];
 
     if (input.type === 'checkbox' && input.checked) {
@@ -16,7 +23,28 @@ function getParams(form, method) {
 }
 
 
-async function api(event) {
+function generateSuccessHTMLOutput(response) {
+  return `<div class="apiCode__title">Response Status:</div>
+          <pre data-lang="json"><code class="lang-json">${response.status} ${response.statusText}</code></pre>
+          <div class="apiCode__title">Response Headers:</div>
+          <pre data-lang="json"><code class="lang-json">${JSON.stringify(response.headers, null, '\t')}</code></pre>
+          <div class="apiCode__title">Response Data:</div>
+          <pre data-lang="json"><code class="lang-json">${JSON.stringify(response.data, null, '\t')}</code></pre>`;
+}
+
+
+function generateErrorHTMLOutput(error) {
+  return `<div class="apiCode__title">Error Message:</div>
+          <pre data-lang="json"><code class="lang-json">${error.message}</code></pre>
+          <div class="apiCode__title">Error Status:</div>
+          <pre data-lang="json"><code class="lang-json">${error.response.status} ${error.response.statusText}</code></pre>
+          <div class="apiCode__title">Error Headers:</div>
+          <pre data-lang="json"><code class="lang-json">${JSON.stringify(error.response.headers, null, '\t')}</code></pre>
+          <div class="apiCode__title">Error Data:</div>
+          <pre data-lang="json"><code class="lang-json">${JSON.stringify(error.response.data, null, '\t')}</code></pre>`;
+}
+
+const apiRest = async (event) => {
   event.preventDefault();
 
   const form = event.currentTarget.parentNode.parentNode;
@@ -24,7 +52,7 @@ async function api(event) {
   const method = form.getAttribute('data-method').toLowerCase();
   const id = form.getAttribute('data-pos');
   const params = await getParams(form, method);
-  const token = localStorage.getItem('airzoneDoc-token');
+  const token = localStorage.getItem('airzoneDoc-token') || '';
 
   let result = '';
 
@@ -61,26 +89,7 @@ async function api(event) {
   document.getElementById(id).innerHTML = result;
 
   Prism.highlightAll();
-}
+};
 
 
-function generateSuccessHTMLOutput(response) {
-  return  `<div class="apiCode__title">Response Status:</div>
-           <pre data-lang="json"><code class="lang-json">${response.status} ${response.statusText}</code></pre>
-           <div class="apiCode__title">Response Headers:</div>
-           <pre data-lang="json"><code class="lang-json">${JSON.stringify(response.headers, null, '\t')}</code></pre>
-           <div class="apiCode__title">Response Data:</div>
-           <pre data-lang="json"><code class="lang-json">${JSON.stringify(response.data, null, '\t')}</code></pre>`;
-}
-
-
-function generateErrorHTMLOutput(error) {
-  return  `<div class="apiCode__title">Error Message:</div>
-           <pre data-lang="json"><code class="lang-json">${error.message}</code></pre>
-           <div class="apiCode__title">Error Status:</div>
-           <pre data-lang="json"><code class="lang-json">${error.response.status} ${error.response.statusText}</code></pre>
-           <div class="apiCode__title">Error Headers:</div>
-           <pre data-lang="json"><code class="lang-json">${JSON.stringify(error.response.headers, null, '\t')}</code></pre>
-           <div class="apiCode__title">Error Data:</div>
-           <pre data-lang="json"><code class="lang-json">${JSON.stringify(error.response.data, null, '\t')}</code></pre>`;
-}
+export default apiRest;

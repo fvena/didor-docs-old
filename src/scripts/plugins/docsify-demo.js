@@ -55,11 +55,10 @@ function renderDemo(content, options) {
 /**
  * installation
  */
-async function install(hook, vm) {
+const install = async (hook, vm) => {
   const options = Object.assign({}, DEFAULT_OPTIONS, vm.config.demo || {});
 
   hook.beforeEach((content) => renderDemo(content, options));
-}
+};
 
-// eslint-disable-next-line
-if (window.$docsify) window.$docsify.plugins = [].concat(install, $docsify.plugins);
+export default install;

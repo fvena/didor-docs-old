@@ -8,6 +8,6 @@ iconos>
 
 ## Utilización
 
-``` markdown
+[```
 iconos>
-```
+```]
