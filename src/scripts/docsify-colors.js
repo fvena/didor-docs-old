@@ -1,4 +1,4 @@
-import { parseHTML, loadJSON } from './docsify-utils';
+import { parseHTML, loadJSON, copyToClipboard } from './docsify-utils';
 
 
 /**
@@ -25,19 +25,19 @@ function colorsDemo(colors, family) {
 
           content += `
             <div class="colorBlock__col">
-              <div class="colorBlock" style="background-color: ${colors[light]}" onclick="copyToClipboard('brand(${light})');">
+              <div class="colorBlock" style="background-color: ${colors[light]}" data-copy="brand(${light})">
                 <div class="colorBlock__name">
                   ${light}
                   <div class="colorBlock__hex">${colors[light]}</div>
                 </div>
               </div>
-              <div class="colorBlock" style="background-color: ${value}" onclick="copyToClipboard('brand(${color})');">
+              <div class="colorBlock" style="background-color: ${value}" data-copy="brand(${color})">
                 <div class="colorBlock__name">
                   ${color}
                   <div class="colorBlock__hex">${value}</div>
                 </div>
               </div>
-              <div class="colorBlock" style="background-color: ${colors[dark]}" onclick="copyToClipboard('brand(${dark})');">
+              <div class="colorBlock" style="background-color: ${colors[dark]}" data-copy="brand(${dark})">
                 <div class="colorBlock__name">
                   ${dark}
                   <div class="colorBlock__hex">${colors[dark]}</div>
@@ -56,7 +56,7 @@ function colorsDemo(colors, family) {
 
         content += `
           <div class="colorBlock__col">
-            <div class="colorBlock" style="background-color: ${value}" onclick="copyToClipboard('${family}(${color})');">
+            <div class="colorBlock" style="background-color: ${value}" data-copy="${family}(${color})">
               <div class="colorBlock__name">
                 ${color}
                 <div class="colorBlock__hex">${value}</div>
@@ -88,10 +88,26 @@ function renderColors(content, colors) {
   return content;
 }
 
+
+function copy(event) {
+  const copyData = event.currentTarget.getAttribute('data-copy');
+  copyToClipboard(copyData);
+}
+
+
+function addColorButtonEvent() {
+  const colorButtons = document.querySelectorAll('.colorBlock');
+
+  colorButtons.forEach((button) => {
+    button.addEventListener('click', copy);
+  });
+}
+
 const install = async (hook, vm) => {
   const varSass = await loadJSON(vm.config.sassVar);
 
   hook.beforeEach((content) => renderColors(content, varSass.colors));
+  hook.doneEach(() => { addColorButtonEvent(); });
 };
 
 export default install;

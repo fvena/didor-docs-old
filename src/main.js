@@ -2,30 +2,24 @@
 import './styles/didor.scss';
 
 // Scripts
+import TimeAgo from 'javascript-time-ago';
+import es from 'javascript-time-ago/locale/es';
 import config from '../static/config.json';
-import showTab from './scripts/scripts/tabs';
-import apiRest from './scripts/scripts/apiRest';
-import copyToClipboard from './scripts/scripts/copyToClipboard';
-import { autoResize, resizeAllDemoIframes } from './scripts/scripts/resize';
 
 // Plugins
 import 'docsify';
 import 'docsify-pagination';
 import 'docsify-copy-code';
-import demo from './scripts/plugins/docsify-demo';
-import tabs from './scripts/plugins/docsify-tabs';
-import helpers from './scripts/plugins/docsify-helpers';
-import colors from './scripts/plugins/docsify-colors';
-import icons from './scripts/plugins/docsify-icons';
-import api from './scripts/plugins/docsify-api';
-import versions from './scripts/plugins/docsify-versions';
+import demo from './scripts/docsify-demo';
+import tabs from './scripts/docsify-tabs';
+import helpers from './scripts/docsify-helpers';
+import colors from './scripts/docsify-colors';
+import icons from './scripts/docsify-icons';
+import api from './scripts/docsify-api';
+import versions from './scripts/docsify-versions';
 
-
-window.showTab = showTab;
-window.copyToClipboard = copyToClipboard;
-window.autoResize = autoResize;
-window.resizeAllDemoIframes = resizeAllDemoIframes;
-window.apiRest = apiRest;
+TimeAgo.locale(es);
+const timeAgo = new TimeAgo('es');
 
 window.$docsify = window.$docsify || {};
 window.$docsify = {
@@ -33,9 +27,10 @@ window.$docsify = {
   basePath: config.versions[config.versions.length - 1].basePath,
   repo: config.repo,
   homepage: config.homepage,
-  formatUpdated: '{DD}/{MM} {HH}:{mm}',
+  formatUpdated: (time) => timeAgo.format(new Date(time)),
   loadNavbar: '_navbar.md',
   loadSidebar: '_sidebar.md',
+  routerMode: 'hash',
   mergeNavbar: true,
   auto2top: true,
   pagination: {

@@ -1,4 +1,5 @@
 # Esquema de colores
+<div class="lastUpdated">Última actualización {docsify-updated}</div>
 
 ## Colores principales
 

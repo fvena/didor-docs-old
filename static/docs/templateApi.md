@@ -1,4 +1,5 @@
 # Api
+<div class="lastUpdated">Última actualización {docsify-updated}</div>
 
 Este plugin genera una vista para documentar apis.
 

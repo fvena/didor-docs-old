@@ -3,7 +3,7 @@ api>
 <!-- Bloque 1 -->
 apiBlock>
 # Todo
-
+<div class="lastUpdated">Última actualización {docsify-updated}</div>
 
 
 apiBlock>

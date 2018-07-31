@@ -68,6 +68,7 @@
     "docsify": "4.7.0",
     "docsify-copy-code": "2.0.2",
     "docsify-pagination": "2.3.4",
+    "javascript-time-ago": "^1.0.31",
     "prismjs": "1.15.0"
   },
   "engines": {

@@ -1,4 +1,6 @@
 # Iconos
+<div class="lastUpdated">Última actualización {docsify-updated}</div>
+
 
 iconos>
 

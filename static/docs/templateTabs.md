@@ -1,4 +1,5 @@
 # Tabs
+<div class="lastUpdated">Última actualización {docsify-updated}</div>
 
 Este plugin genera un menú de navegación por pestañas que permite cambiar entre
 diferentes bloques de código y un [demo](templateDemo.md).

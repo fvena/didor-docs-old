@@ -1,5 +1,5 @@
 # Plantilla
-{docsify-updated}
+<div class="lastUpdated">Última actualización {docsify-updated}</div>
 
 
 Esta plantilla utiliza como base la librería [docsify](https://docsify.js.org/).

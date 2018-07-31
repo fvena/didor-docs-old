@@ -1,7 +1,7 @@
 .markdown-section {
   max-width: $base-wrappers-width;
   margin: 0 auto;
-  padding: 0 $space;
+  padding: 0 $space double($space);
 }
 
 .markdown-section h1,
@@ -121,7 +121,7 @@
   width: 1px;
   min-width: 100%;
   border: 0;
-  margin: double($space) 0;
+  margin: $space 0 double($space);
 }
 
 .markdown-section img {
@@ -134,7 +134,14 @@
 }
 
 .markdown-section .blockExample {
-  margin: triple($space) 0;
+  margin: 0 0 triple($space);
+}
+
+.markdown-section .lastUpdated {
+  @include fontsize(eta);
+  color: gray(gray3);
+  margin-top: -2rem;
+  margin-bottom: double($space);
 }
 
 @include media(large) {

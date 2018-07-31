@@ -1,4 +1,4 @@
-import config from '../../../static/config.json';
+import config from '../../static/config.json';
 
 function renderVersions(versions) {
   const sidebar = document.querySelector('.sidebar h1');

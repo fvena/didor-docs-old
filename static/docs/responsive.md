@@ -1,4 +1,5 @@
 # Responsive <span class="micro">- Adaptativo</span>
+<div class="lastUpdated">Última actualización {docsify-updated}</div>
 
 ## Movile o Desktop first
 

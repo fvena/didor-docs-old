@@ -1,4 +1,5 @@
 # Visibilidad
+<div class="lastUpdated">Última actualización {docsify-updated}</div>
 
 Para facilitar un desarrollo adaptable, utiliza las clases `.hidden` y `.visible`
 para ocultar y mostrar elementos según el tamaño de pantalla.

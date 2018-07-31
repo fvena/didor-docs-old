@@ -1,4 +1,5 @@
 # Colores
+<div class="lastUpdated">Última actualización {docsify-updated}</div>
 
 Este plugin genera un listado de colores en base al archivo [vars](/).
 
