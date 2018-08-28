@@ -35,7 +35,7 @@ exports.cssLoaders = function (options) {
                   ]
               }
           }
-        }, 
+        },
         {
           loader: loader + '-loader',
           options: Object.assign({}, loaderOptions, {
@@ -79,10 +79,10 @@ exports.pageFile = function (dev = true) {
   var HtmlWebpackPlugin = require('html-webpack-plugin')
   const fs = require('fs')
   const path = require('path')
-  const testFolder = path.resolve(__dirname, '../src/views/pages')
-  
+  const testFolder = path.resolve(__dirname, '../src/views')
+
   var list = []
-  
+
   fs.readdirSync(testFolder).forEach(fileItem => {
     var file = path.resolve(__dirname, `${testFolder}/${fileItem}`)
     var distfile = fileItem.replace('.pug', '.html')
