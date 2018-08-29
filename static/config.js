@@ -11,7 +11,7 @@ window.$docsify = {
   logotype: '../img/logo.svg',
   basePath: '/static/docs',
   repo: 'https://github.com/fvena/didor-framework2',
-  homepage: 'home.md',
+  homepage: 'home',
   demo: {
     css: '/static/didor.css',
   },
@@ -29,17 +29,17 @@ window.$docsify = {
     {
       name: 'v3.0.0',
       basePath: 'v3_0_0',
-      homePage: 'home.md',
+      homePage: 'home',
     },
     {
       name: 'v2.0.0',
       basePath: 'v2_0_0',
-      homePage: 'home.md',
+      homePage: 'home',
     },
     {
       name: 'v1.0.0',
       basePath: 'v1_0_0',
-      homePage: 'home.md',
+      homePage: 'home',
     },
   ],
 };
