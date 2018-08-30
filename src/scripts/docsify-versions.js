@@ -2,9 +2,11 @@
  * Event when change select version
  */
 async function changeVersion(event) {
-  const version = event.currentTarget.value;
+  const path = event.currentTarget.value;
+  const version = path.split('/');
 
-  window.location.href = version;
+  window.$docsify.version = version[1];
+  window.location.href = path;
 }
 
 
@@ -45,6 +47,7 @@ const install = async (hook, vm) => {
   hook.init(() => {
     if (versions.length) {
       const basePath = versions[0].basePath;
+      window.$docsify.version = basePath;
       window.$docsify.alias = {
         '/': `${basePath}/home`,
         '/_navbar.md': `${basePath}/_navbar.md`,

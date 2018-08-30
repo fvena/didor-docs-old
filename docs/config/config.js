@@ -7,18 +7,16 @@
 // };
 
 window.$docsify = {
-  name: 'Didor framework',
-  logotype: '../img/logo.svg',
-  basePath: '/static/docs',
-  repo: 'https://github.com/fvena/didor-framework2',
-  homepage: 'home',
+  name: 'Didor Docs',
+  logotype: '/static/img/logo.svg',
+  basePath: '/docs',
+  repo: 'https://github.com/fvena/didor-docs',
+  homepage: 'home.md',
   demo: {
-    css: '/static/didor.css',
+    css: 'docs/config/didor.css',
   },
-  sassVar: '/static/sassVar.json',
   loadNavbar: '_navbar.md',
   loadSidebar: '_sidebar.md',
-  routerMode: 'hash',
   mergeNavbar: true,
   auto2top: true,
   pagination: {

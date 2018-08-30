@@ -31,7 +31,7 @@ apiBlock>
 
 Dentro de un `ApiBlock` si los títulos comienzan con un método en mayúscula: `GET`, `POST`, `PUT`, `PATCH` or `DELETE`, este se resalta más. También se representan de igual forma en la barra lateral.
 
-![Títulos con los métodos en un apiBlock](images/apiTitles.png)
+![Títulos con los métodos en un apiBlock](assets/img/apiTitles.png)
 
 ``` markdown
 ## GET /todos
@@ -49,7 +49,7 @@ indicar algunos parámetros de configuración en formato `json`.
 
 > El plugin genera tanto la tabla con los parámetros de la descripción, como el formulario del ejemplo
 
-![Api Block con peticiones interactivas](images/api.png)
+![Api Block con peticiones interactivas](assets/img/api.png)
 
 [```
 ```apiExample
