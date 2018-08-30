@@ -8,7 +8,7 @@
 
 window.$docsify = {
   name: 'Didor Docs',
-  logotype: '/static/img/logo.svg',
+  logotype: '/assets/img/logo.svg',
   basePath: '/docs',
   repo: 'https://github.com/fvena/didor-docs',
   homepage: 'home.md',

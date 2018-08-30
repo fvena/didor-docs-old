@@ -61,7 +61,7 @@ function addIconButtonEvent() {
 const install = async (hook) => {
   const basePath = window.$docsify.basePath;
   const version = (window.$docsify.versions) ? `/${window.$docsify.versions[0].basePath}` : '';
-  const varSass = await loadJSON(`${basePath}${version}/assets/sassVar.json`);
+  const varSass = await loadJSON(`${basePath}${version}/config/sassVar.json`);
 
   hook.beforeEach((content) => renderIcons(content, varSass.icons));
   hook.doneEach(() => { addIconButtonEvent(); });

@@ -12,11 +12,11 @@
   font-family: 'Fira Code';
   font-style: normal;
   font-weight: 400;
-  src: url('/static/fonts/FiraCode-Regular.eot') format('embedded-opentype'),
-       url('/static/fonts/FiraCode-Regular.woff2') format('woff2'),
-       url('/static/fonts/FiraCode-Regular.woff') format('woff'),
-       url('/static/fonts/FiraCode-Regular.ttf') format('truetype');
-  src: url('/static/fonts/FiraCode-Regular.eot');
+  src: url('/assets/fonts/FiraCode-Regular.eot') format('embedded-opentype'),
+       url('/assets/fonts/FiraCode-Regular.woff2') format('woff2'),
+       url('/assets/fonts/FiraCode-Regular.woff') format('woff'),
+       url('/assets/fonts/FiraCode-Regular.ttf') format('truetype');
+  src: url('/assets/fonts/FiraCode-Regular.eot');
 }
 // sass-lint:enable indentation no-duplicate-properties
 
