@@ -1,4 +1,4 @@
-# Plantilla v3.0.0
+# Plantilla ES
 <div class="lastUpdated">Última actualización {docsify-updated}</div>
 
 

@@ -15,7 +15,7 @@ import helpers from './scripts/docsify-helpers';
 import colors from './scripts/docsify-colors';
 import icons from './scripts/docsify-icons';
 import api from './scripts/docsify-api';
-import versions from './scripts/docsify-versions';
+import languages from './scripts/docsify-languages';
 import logo from './scripts/docsify-logo';
 
 TimeAgo.locale(es);
@@ -31,6 +31,6 @@ window.$docsify.plugins = [
   demo,
   tabs,
   api,
-  versions,
+  languages,
   logo,
 ].concat(window.$docsify.plugins || []);
