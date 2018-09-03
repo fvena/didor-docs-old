@@ -5,7 +5,6 @@
 Esta plantilla utiliza como base la librería [docsify](https://docsify.js.org/).
 Se han creado varios plugins con nuevas funcionalidades.
 
-
 ```demo
 <p>
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
@@ -89,6 +88,13 @@ function loadJSON(file) {
     xobj.send(null);
   });
 }
+```
+
+```[bash]
+# Start Development
+$ npm run cordova-serve
+
+# open http://localhost:8080
 ```
 </div>
 

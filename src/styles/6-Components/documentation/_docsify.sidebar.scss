@@ -71,12 +71,17 @@
     }
   }
 
-  ul > li > p {
+  ul > li > p,
+  ul > li > p > a {
     @include fontsize(theta);
     margin-bottom: 0;
     color: gray(gray1);
     font-weight: font($body-type, bold);
     text-transform: uppercase;
+  }
+
+  ul > li > p > a {
+    margin-bottom: halve($space);
   }
 
   ul > li > ul {

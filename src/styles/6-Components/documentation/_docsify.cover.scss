@@ -5,6 +5,7 @@ section.cover {
   background-repeat: no-repeat;
   background-position: 50%;
   background-size: cover;
+  margin-top: triple(-$space);
 }
 
 section.cover.show {
@@ -41,70 +42,77 @@ section.cover p {
   line-height: 1.5rem;
 }
 
-section.cover h1 {
-  position: relative;
-  margin: .625rem 0 2.5rem;
-  color: inherit;
-  font-size: 2.5rem;
-  font-weight: 300;
-  text-align: center;
+section.cover h2 {
+  @include fontsize(eta);
+  color: gray(gray3);
+  text-transform: uppercase;
+  margin-top: double($space);
+  margin-bottom: halve($space);
 }
 
-section.cover h1 a {
+section.cover h1 {
+  line-height: $space;
+}
+
+section.cover h1 a,
+section.cover h2 a {
   display: block;
+  cursor: default;
 }
 
 section.cover h1 small {
-  position: absolute;
-  bottom: -.4375rem;
-  font-size: 1rem;
+  display: block;
+  margin-top: quarter($space);
 }
 
 section.cover blockquote {
-  font-size: 1.5rem;
-  text-align: center;
+  color: gray(gray3);
 }
 
 section.cover ul {
   max-width: 500px;
-  margin: 1em auto;
+  margin: $space auto;
   padding: 0;
-  line-height: 1.8;
   list-style-type: none;
 }
 
 section.cover .cover-main>p:last-child a {
   display: inline-block;
-  margin: .5rem 1rem;
-  padding: .75em 2rem;
-  border: 1px solid var(--theme-color, #42b983);
-  border-radius: 2rem;
-  color: var(--theme-color, #42b983);
-  font-size: 1.05rem;
-  letter-spacing: .1rem;
+  margin: 0 halve($space);
+  padding: 0 $space;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
   text-decoration: none;
-  box-sizing: border-box;
+  // color: gray(gray2);
+  height: double($space);
+  line-height: double($space);
 }
 
-section.cover .cover-main>p:last-child a:last-child {
-  background-color: var(--theme-color, #42b983);
-  color: #ffffff;
-}
+// section.cover .cover-main>p:last-child a:last-child {
+//   background-color: var(--theme-color, #42b983);
+//   color: #ffffff;
+// }
 
-section.cover .cover-main>p:last-child a:last-child:hover {
-  color: inherit;
-  opacity: .8;
-}
+// section.cover .cover-main>p:last-child a:last-child:hover {
+//   color: inherit;
+//   opacity: .8;
+// }
 
 section.cover .cover-main>p:last-child a:hover {
-  color: inherit;
+  color: brand();
+  border-color: brand();
+  cursor: pointer;
+}
+
+section.cover blockquote {
+  margin-bottom: $space;
 }
 
 section.cover blockquote>p>a {
-  transition: color .3s;
-  border-bottom: 2px solid var(--theme-color, #42b983);
+  // transition: color .3s;
+  // border-bottom: 2px solid var(--theme-color, #42b983);
 }
 
 section.cover blockquote>p>a:hover {
-  color: var(--theme-color, #42b983);
+  // color: var(--theme-color, #42b983);
 }

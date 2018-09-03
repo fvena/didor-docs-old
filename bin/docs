@@ -1,0 +1,113 @@
+#!/usr/bin/env node
+
+const serveStatic = require('serve-static');
+const connect     = require('connect');
+const livereload  = require('connect-livereload');
+const lrserver    = require('livereload');
+const open        = require('opn');
+const chalk       = require('chalk');
+const path        = require('path');
+const pathExists  = require('path-exists'); // Comprueba si existe un directorio
+const _           = require('lodash');
+
+
+/**
+ * Inicializa un servidor local para ver la documentación
+ * @param  {string}  docs           [Docs path]
+ * @param  {boolean} openInBrowser  [Open docs in default browser]
+ * @param  {integer} port           [Listen Port]
+ * @param  {integer} livereloadPort [Livereload Listen Port]
+ */
+// module.exports = async (configPath) => {
+async function renderDocs(configPath) {
+  try {
+    const defaultConfig = {
+      open: false,
+      port: '3000',
+      livereload_port: '35729',
+      docs: '/docs',
+    };
+
+    let config = null;
+
+    if (configPath) {
+      const validatePathFile = await pathExists(process.cwd() + configPath)
+        .then(exists => exists);
+
+      if (!validatePathFile) {
+        console.log(`${chalk.red('Error al generar la documentación:')} No se encuentra el directorio ${configPath}`);
+        return false;
+      }
+
+      const configFile = require(process.cwd() + configPath); // eslint-disable-line
+      config = _.merge({}, defaultConfig, configFile.docs);
+    } else {
+      const validateDefaultPathFile = await pathExists(`${process.cwd()}/didor.config.json`)
+        .then(exists => exists);
+
+      if (!validateDefaultPathFile) {
+        config = defaultConfig;
+      } else {
+        const configFile = require(`${process.cwd()}/didor.config.json`); // eslint-disable-line
+        config = _.merge({}, defaultConfig, configFile.docs);
+      }
+    }
+
+    // let config = null;
+    // const configPathNew = configPath || '/didor.config.json';
+    // const validatePathFile = await pathExists(process.cwd() + configPathNew)
+    //   .then(exists => exists);
+    //
+    // if (validatePathFile) {
+    //   const configFile = require(process.cwd() + configPathNew); // eslint-disable-line
+    //   config = _.merge({}, defaultConfig, configFile.docs);
+    // } else {
+    //   config = defaultConfig;
+    // }
+
+    const docsBasePath = process.cwd() + config.docs;
+
+    // Compruebo si existe el directorio con la documentación
+    const validateDocsFolder = await pathExists(docsBasePath)
+      .then(exists => exists);
+
+    if (!validateDocsFolder) {
+      console.log(`${chalk.red('Error al generar la documentación:')} No se encuentra el directorio ${config.basePath}`);
+      return false;
+    }
+
+    // Creo el servidor
+    const server = connect();
+    server.use(livereload({ port: config.livereloadPort }));
+
+    server.use('/docs', serveStatic(docsBasePath));
+    server.use(serveStatic(path.join(__dirname, '../dist')));
+    server.listen(config.port);
+
+    lrserver.createServer({
+      exts: ['md'],
+      exclusions: ['node_modules/'],
+      port: config.livereloadPort,
+    }).watch(docsBasePath);
+
+    if (config.open) {
+      open(`http://localhost:${config.port}`);
+    }
+
+    const msg = `\nServing ${chalk.green(config.docs)} now.\nListening at ${chalk.green(`http://localhost:${config.port}`)}.\n`;
+    console.log(msg);
+
+    return true;
+  } catch (error) {
+    if (error) {
+      console.log(chalk.red('Ha ocurrido un error'));
+      console.log(error);
+    }
+
+    return false;
+  }
+}
+
+const args = process.argv;
+
+renderDocs(args[2]);
