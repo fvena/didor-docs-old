@@ -44,12 +44,25 @@ didor-docs /docs -l 35729   # Indica el puerto liveReload (default: 35729)
 ## Ejemplos
 
 ### Proyecto simple
-Necesitas al menos dos archivos para comenzar a documentar:
+Necesitas al menos tres archivos para comenzar tu documentación:
 
 ```
-docs/		        # Directorio donde están tu documentación
-|_ home.md	    # Página de inicio de tu documentación
-|_ _sidebar.md	# Links mostrados en la barra lateral
+docs/           # Directorio donde están tu documentación
+|_ _sidebar.md  # Links mostrados en la barra lateral
+|_ config.js    # Archivo para configurar docsify y los plugins
+|_ home.md      # Página de inicio de tu documentación
+```
+
+La configuración mínima es indicar el nombre de tu proyecto. Puedes añadir todas
+las propiedades de configuración que tiene por defecto [docsify](https://docsify.js.org/#/configuration).
+En la documentación podrás ver las específicas de cada plugin personalizado.
+
+```js
+// config.js
+
+window.$docsify = {
+  name: 'Didor Docs',
+};
 ```
 
 ## Licencia

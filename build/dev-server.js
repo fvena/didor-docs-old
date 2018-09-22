@@ -64,7 +64,7 @@ var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsS
 var docsPath = path.posix.join(config.dev.assetsPublicPath, 'docs')
 
 app.use(staticPath, express.static('./src/assets'))
-app.use('/docs', express.static('./docs'))
+app.use('/', express.static('./docs'))
 
 var uri = 'http://localhost:' + port
 
