@@ -42,6 +42,7 @@ didor-docs /docs -l 35729   # Indica el puerto liveReload (default: 35729)
 ```
 
 ## Ejemplos
+En la carpeta 'examples' tienes ejemplos con diferentes tipos de configuraciones.
 
 ### Proyecto simple
 Necesitas al menos tres archivos para comenzar tu documentación:

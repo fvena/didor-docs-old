@@ -1,0 +1,3 @@
+- [Chapitre 1](/fr/home.md)
+- [Chapitre 2](/fr/home.md)
+- [Chapitre 3](/fr/home.md)
