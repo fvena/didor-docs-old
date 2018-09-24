@@ -9,6 +9,7 @@
     "commit": "git-cz",
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
+    "prerelease": "npm run build",
     "release": "standard-version"
   },
   "preferGlobal": true,

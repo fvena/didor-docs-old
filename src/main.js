@@ -25,7 +25,6 @@ import colors from './scripts/docsify-colors';
 import icons from './scripts/docsify-icons';
 import api from './scripts/docsify-api';
 import logo from './scripts/docsify-logo';
-// import languages from './scripts/docsify-languages';
 
 
 /*
@@ -69,8 +68,5 @@ window.$docsify.plugins = [
   demo,
   tabs,
   api,
-  // languages,
   logo,
 ].concat(window.$docsify.plugins || []);
-
-console.log('pepe'); // eslint-disable-line
